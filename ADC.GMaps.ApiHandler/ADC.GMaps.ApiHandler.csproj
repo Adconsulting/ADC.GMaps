@@ -39,10 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeoAddress.cs" />
+    <Compile Include="Enums\StaticMap\ImageFormat.cs" />
+    <Compile Include="Enums\StaticMap\MapType.cs" />
+    <Compile Include="Enums\StaticMap\MarkerSize.cs" />
+    <Compile Include="Models\GeoAddress.cs" />
     <Compile Include="Geocoding.cs" />
-    <Compile Include="GeoLocation.cs" />
+    <Compile Include="Models\GeoLocation.cs" />
+    <Compile Include="Models\StaticMapMarker.cs" />
+    <Compile Include="Models\StaticMapOptions.cs" />
+    <Compile Include="Models\StaticMapSize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticImage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
