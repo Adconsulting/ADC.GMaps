@@ -110,7 +110,7 @@ namespace ADC.GMaps.ApiHandler
                 var status = (from elm in xmlElm.Descendants()
                               where elm.Name == "status"
                               select elm).FirstOrDefault();
-                Console.WriteLine("Google Status {0}", status);
+                //Console.WriteLine("Google Status {0}", status);
                 if (status != null && status.Value.ToLower() == "ok")
                 {
                     var location = (from elm in xmlElm.Descendants()
