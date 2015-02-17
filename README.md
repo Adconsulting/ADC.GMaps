@@ -3,6 +3,9 @@
 
 Small c# library for geocoding (using the google maps API)
 
+## Nuget
+https://www.nuget.org/packages/Adc.GoogleMaps.ApiHandler/
+
 ## Usage
 ### Get Latitude and Longitude from address
 ```
