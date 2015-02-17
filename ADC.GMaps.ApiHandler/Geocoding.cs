@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
+
+using ADC.GMaps.ApiHandler.Models;
 
 namespace ADC.GMaps.ApiHandler
 {
@@ -97,7 +96,11 @@ namespace ADC.GMaps.ApiHandler
             }
         }
 
-
+        /// <summary>
+        /// Get the latitude and longitude from an address
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
         public static GeoLocation GetLocationFromAddress(GeoAddress address)
         {
             var requestUri = string.Format(AddressBaseUri, string.Format(@"{0} {1}, {2} {3}", address.Street, address.Number, address.Zip, address.City));
