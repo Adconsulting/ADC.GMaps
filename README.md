@@ -26,4 +26,27 @@ var mylocation = new GeoLocation()
 var myaddress = Geocoding.GetAddressFromLatLong(mylocation);
 Console.WriteLine(myaddress.ToString());
 ```
+### Get a static map
+
+```
+var mapData =
+                StaticImage.GetStaticMap(
+                    new StaticMapOptions
+                        {
+                            Location = location,
+                            MapSize = new StaticMapSize { Width = 640, Height = 480 },
+                            ZoomLevel = 14,
+                            Markers = new List<StaticMapMarker>
+                                          {
+                                              new StaticMapMarker
+                                                  {
+                                                      Location = location,
+                                                      Label = 'v',
+                                                      Color = "orange"
+                                                  }
+                                          }
+                            
+                        });
+
+```
 
