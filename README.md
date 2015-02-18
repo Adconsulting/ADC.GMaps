@@ -51,7 +51,20 @@ var mapData = StaticImage.GetStaticMap(
                             
                         });
 
+
 ```
+## Feature list
+### 1.1.0
+
+ - GeoCoding.GetAddressConversionUrl
+ - GeoCoding.GetLocationConversionUrl
+ - StaticImage.GetStaticMapUrl
+
+### 1.0.0
+ - GeoCoding.GetAddressFromLatLong
+ - GeoCoding.GetLocationFromAddress
+ - StaticImage.GetStaticMap
+
 ## Todo
 Streetview implementation
 
