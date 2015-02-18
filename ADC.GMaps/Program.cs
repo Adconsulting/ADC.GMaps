@@ -29,7 +29,8 @@ namespace ADC.GMaps
                         {
                             Location = location,
                             MapSize = new StaticMapSize { Width = 640, Height = 480 },
-                            ZoomLevel = 14,
+                            ZoomLevel = 20,
+                            MapType = MapType.Hybrid,
                             Markers = new List<StaticMapMarker>
                                           {
                                               new StaticMapMarker
@@ -47,7 +48,7 @@ namespace ADC.GMaps
 
             Process.Start(filename);
 
-            Console.ReadLine();
+            //Console.ReadLine();
         }
 
 

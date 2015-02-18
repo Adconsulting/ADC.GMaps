@@ -15,9 +15,14 @@ namespace ADC.GMaps.ApiHandler
 
         private const string StreetViewUrl = "https://maps.googleapis.com/maps/api/streetview?{0}";
 
+        /// <summary>
+        /// Get a static map 
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public static byte[] GetStaticMap(StaticMapOptions options)
         {
-            var url = string.Format(MapUrl, options);
+            var url = GetStaticMapUrl(options);
 
             using (var wc = new WebClient())
             {
@@ -25,6 +30,17 @@ namespace ADC.GMaps.ApiHandler
 
                 return result;
             }
+        }
+
+
+        /// <summary>
+        /// Get the url for a static map
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static string GetStaticMapUrl(StaticMapOptions options)
+        {
+            return string.Format(MapUrl, options);
         }
     }
 }

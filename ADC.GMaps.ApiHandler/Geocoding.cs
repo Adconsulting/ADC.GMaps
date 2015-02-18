@@ -19,7 +19,7 @@ namespace ADC.GMaps.ApiHandler
         /// <returns>Null if no address is resolved</returns>
         public static GeoAddress GetAddressFromLatLong(GeoLocation location)
         {
-            var requestUri = string.Format(BaseUri, location.Latitude, location.Longitude);
+            var requestUri = GetAddressConversionUrl(location);
             using (var wc = new WebClient())
             {
                 try
@@ -97,13 +97,23 @@ namespace ADC.GMaps.ApiHandler
         }
 
         /// <summary>
+        /// Get the Full url for location to address conversion
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public static string GetAddressConversionUrl(GeoLocation location)
+        {
+            return string.Format(BaseUri, location.Latitude, location.Longitude);
+        }
+
+        /// <summary>
         /// Get the latitude and longitude from an address
         /// </summary>
         /// <param name="address"></param>
         /// <returns></returns>
         public static GeoLocation GetLocationFromAddress(GeoAddress address)
         {
-            var requestUri = string.Format(AddressBaseUri, string.Format(@"{0} {1}, {2} {3}", address.Street, address.Number, address.Zip, address.City));
+            var requestUri = GetLocationConversionUrl(address);
             var geolocation = new GeoLocation();
             using (var wc = new WebClient())
             {
@@ -129,6 +139,16 @@ namespace ADC.GMaps.ApiHandler
                 }
             }
             return geolocation;
+        }
+
+        /// <summary>
+        /// Get the Full url for address to location conversion
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        public static string GetLocationConversionUrl(GeoAddress address)
+        {
+           return string.Format(AddressBaseUri, string.Format(@"{0} {1}, {2} {3}", address.Street, address.Number, address.Zip, address.City));
         }
     }
 }
