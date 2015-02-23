@@ -3,6 +3,8 @@
 
 Small c# library for geocoding (using the google maps API)
 
+[![Build Status](https://travis-ci.org/Adconsulting/ADC.GMaps.svg?branch=master)](https://travis-ci.org/Adconsulting/ADC.GMaps)
+
 ## Nuget
 https://www.nuget.org/packages/Adc.GoogleMaps.ApiHandler/
 
