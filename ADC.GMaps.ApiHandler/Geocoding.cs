@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Xml.Linq;
 
+using ADC.GMaps.ApiHandler.Enums;
 using ADC.GMaps.ApiHandler.Models;
 
 namespace ADC.GMaps.ApiHandler
@@ -129,12 +130,36 @@ namespace ADC.GMaps.ApiHandler
                     var location = (from elm in xmlElm.Descendants()
                                     where elm.Name == "location"
                                     select elm).FirstOrDefault();
+                    var locatoinType = (from elm in xmlElm.Descendants()
+                                        where elm.Name == "location_type"
+                                        select elm).FirstOrDefault();
                     if (location != null)
                     {
                         var lat = location.Descendants("lat").First().Value;
                         var lng = location.Descendants("lng").First().Value;
                         geolocation.Latitude = lat;
                         geolocation.Longitude = lng;
+                    }
+                    if (locatoinType != null)
+                    {
+                        var type = locatoinType.Value;
+                        switch (type)
+                        {
+                            case "APPROXIMATE":
+                                geolocation.LocationType = LocationType.Approximate;
+                                break;
+                            case "ROOFTOP":
+                                geolocation.LocationType = LocationType.Rooftop;
+                                break;
+                            case "RANGE_INTERPOLATED":
+                                geolocation.LocationType = LocationType.RangeInterpolated;
+                                break;
+                            case "GEOMETRIC_CENTER":
+                                geolocation.LocationType = LocationType.GeometricCenter;
+                                break;
+
+
+                        }
                     }
                 }
             }
@@ -148,7 +173,7 @@ namespace ADC.GMaps.ApiHandler
         /// <returns></returns>
         public static string GetLocationConversionUrl(GeoAddress address)
         {
-           return string.Format(AddressBaseUri, string.Format(@"{0} {1}, {2} {3}", address.Street, address.Number, address.Zip, address.City));
+            return string.Format(AddressBaseUri, string.Format(@"{0} {1}, {2} {3}", address.Street, address.Number, address.Zip, address.City));
         }
     }
 }

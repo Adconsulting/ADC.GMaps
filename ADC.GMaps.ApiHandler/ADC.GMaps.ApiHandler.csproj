@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\LocationType.cs" />
     <Compile Include="Enums\StaticMap\ImageFormat.cs" />
     <Compile Include="Enums\StaticMap\MapType.cs" />
     <Compile Include="Enums\StaticMap\MarkerSize.cs" />
